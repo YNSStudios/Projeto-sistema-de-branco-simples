@@ -14,7 +14,7 @@ except FileExistsError:
 print()
 print("==============================")
 print()
-print("Banco DECRADI")
+print("\033[33mBanco DECRADI\033[0m")
 print()
 print("Digite seu CPF, telefone ou email (Digite em padrão de leitura, tanto telefone quanto CPF): ")
 
