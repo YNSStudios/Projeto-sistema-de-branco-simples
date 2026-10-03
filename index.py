@@ -19,6 +19,8 @@ print()
 print("Digite seu CPF, telefone ou email (Digite em padrão de leitura, tanto telefone quanto CPF): ")
 
 
-opçao = login()
+pessoa = login()
+print()
 
-print(opçao)
+print(f"Bem vindo de volta {pessoa['usuario']}")
+print()

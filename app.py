@@ -78,37 +78,86 @@ def login():
         dado = input("")
 
         pd_email = re.search(r"[a-z0-9]+@\.[a-z]+", dado)
-        pd_telefone = re.search(r"\([0-9]+\)[0-9]+\-[0-9]", dado)
-        pd_cpf = re.search(r"[0-9]+\.[0-9+]\.[0-9]\-[0-9]+", dado)
+        pd_telefone = re.search(r"\([0-9]+\)[0-9]+\-[0-9]+", dado)
+        pd_cpf = re.search(r"[0-9]+\.[0-9]+\.[0-9]+\-[0-9]+", dado)
 
         cliente_econ = None
 
         if pd_email:
 
             for cliente in clientes:
-                if dado['email'] == dado:
+                if cliente['email'] == dado:
                     cliente_econ = cliente
-                    return cliente
-                else:
-                    return open("cadastro.py")  
+                    break
+
+            if cliente_econ is None:
+                cadastro()
+            else:
+
+                while True:
+
+                    senha = input("Digite sua senha: ")
+
+                    senha_cer = None
+
+                    for senha1 in clientes:
+                        if senha1['senha'] == senha:
+                            senha_cer = senha
+                            return cliente
+                        else:
+                            print("\033[31mSenha incorreta !\033[0m")
+                            print()    
                                       
         elif pd_telefone:
 
             for cliente in clientes:
-                if dado['telefone'] == dado:
+                if cliente['telefone'] == dado:
                     cliente_econ = cliente
-                    return cliente
-                else:
-                    return open("cadastro.py")                      
+                    break
+
+            if cliente_econ is None:
+                cadastro()
+            else:
+
+                while True:
+
+                    senha = input("Digite sua senha: ")
+
+                    senha_cer = None
+
+                    for senha1 in clientes:
+                        if senha1['senha'] == senha:
+                            senha_cer = senha
+                            return cliente
+                        else:
+                            print("\033[31mSenha incorreta !\033[0m")
+                            print()              
 
         elif pd_cpf:
 
             for cliente in clientes:
-                if dado['cpf'] == dado:
+                if cliente['cpf'] == dado:
                     cliente_econ = cliente
-                    return cliente
-                else:
-                    return open("cadastro.py")                    
+                    break
+
+            if cliente_econ is None:
+                return cadastro()
+            else:
+
+                while True:
+
+                    senha = input("Digite sua senha: ")
+
+                    senha_cer = None
+
+                    for senha1 in clientes:
+                        if senha1['senha'] == senha:
+                            senha_cer = senha
+                            return cliente
+                        else:
+                            print("\033[31mSenha incorreta !\033[0m")
+                            print()                       
+
 
 def cadastro():
 
@@ -213,6 +262,7 @@ def cadastro():
     print()
     rua = input("Digite sua rua: ").strip().title()
     print()
+    print("Número da casa:")
     nu_casa = verificar_numero_inteiro()
 
     while True:
@@ -250,11 +300,11 @@ def cadastro():
 
     while True:
 
-        print("Digite seu telefone no formato (99) 99999-9999.")
+        print("Digite seu telefone no formato (99)99999-9999.")
         print()
 
         telefone = input("Digite seu telefone: ")
-        pd_telefone = re.search(r"\([0-9]+\)\ [0-9]+\-[0-9]+", telefone)
+        pd_telefone = re.search(r"\([0-9]+\)[0-9]+\-[0-9]+", telefone)
 
         if len(telefone) == 14:
             if pd_telefone:
@@ -313,3 +363,7 @@ def cadastro():
 
     with open("clientes.json", "w", encoding="utf-8") as dados:
             json.dump(clientes, dados, ensure_ascii=False, indent= 12)
+
+    for cliente in clientes:
+        if cliente['cpf'] == cpf:
+            return cliente

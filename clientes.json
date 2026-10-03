@@ -1,16 +1,30 @@
 [
-    {
-        "nome": "Lucas Almeida Costa",
-        "usuario": "Lucas",
-        "cpf": "123.456.789-00",
-        "rg": "12.345.678-90",
-        "telefone": "(11) 98765-4321",
-        "email": "lucas134@example.com",
-        "endereço": "Rua das Acácias, 120 - Centro, Campinas/SP",
-        "cep": "13010-000",
-        "senha": "Teste123@",
-        "nascimento": "15/08/1998",
-        "idade": 28,
-        "status": "Maior"
-    }
+            {
+                        "nome": "Lucas Almeida Costa",
+                        "usuario": "Lucas",
+                        "cpf": "123.456.789-00",
+                        "rg": "12.345.678-90",
+                        "telefone": "(11) 98765-4321",
+                        "email": "lucas134@example.com",
+                        "endereço": "Rua das Acácias, 120 - Centro, Campinas/SP",
+                        "cep": "13010-000",
+                        "senha": "Teste123@",
+                        "nascimento": "15/08/1998",
+                        "idade": 28,
+                        "status": "Maior"
+            },
+            {
+                        "nome": "Pedro Goçalves Da Silva",
+                        "usuario": "Pedro",
+                        "cpf": "987.654.321-00",
+                        "rg": "45.879.645-85",
+                        "telefone": "(73)98451-3267",
+                        "email": "pedrogo123@gmail.com",
+                        "endereço": "Felipe Bolfim, 54 - Campo Novo, Pau Brasil/PR",
+                        "cep": "45689-954",
+                        "senha": "Pedro123@#$",
+                        "nascimento": "15/10/2000",
+                        "idade": 26,
+                        "status": "Maior"
+            }
 ]
