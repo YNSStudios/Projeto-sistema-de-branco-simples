@@ -18,7 +18,7 @@
 - Telefone
 - Senha e confirmação de senha
 
-> Login em andamento
+> Login completo
 
 - Entrar usando CPF, telefone ou e-mail
 - Procurar o cliente cadastrado
@@ -75,10 +75,9 @@
 
 # Ordem para continuar
 
-1. Terminar o login
-2. Criar o menu principal
-3. Fazer saldo, depósito, saque e transferência
-4. Criar o extrato
-5. Fazer a análise e o cálculo de crédito
-6. Criar empréstimo e cartão de crédito
-7. Testar e corrigir os erros
+1. Criar o menu principal
+2. Fazer saldo, depósito, saque e transferência
+3. Criar o extrato
+4. Fazer a análise e o cálculo de crédito
+5. Criar empréstimo e cartão de crédito
+6. Testar e corrigir os erros

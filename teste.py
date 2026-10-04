@@ -1,21 +1,13 @@
 import re
+import sys
 from app import *
+from datetime import *
 
 while True:
+    cliente = None
 
-    cep = input("Digite seu CEP (99999-999): ")
-    print()
+    for cliente in clientes:
+        cliente = cliente
+        break
+    break
 
-    pd_cep = re.search(r"[0-9]+\-[0-9]+", cep)
-
-    if pd_cep:
-        if len(cep) == 9:
-            break
-        else:
-            print("\033[31mFormato inválido !\033[0m")
-            print()
-    else:
-        print("\033[31mNão segue o padrão.\033[0m")
-        print()
-
-print(cep)
