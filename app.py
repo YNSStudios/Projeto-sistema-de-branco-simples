@@ -1,8 +1,10 @@
 import json
-import datetime
-import re
-from random import randint
+import re 
+import sys
+from app import * 
+from random import randint 
 from time import sleep
+from datetime import *
 
 try:
     with open("Clientes.json", "r", encoding="utf-8") as dados:
@@ -185,14 +187,14 @@ def cadastro():
             print("Mês inválido.")
             continue
 
-        ano_atual = datetime.datetime.now().year
+        ano_atual = datetime.now().year
 
         if (ano_atual - ano) > 127 or ano > ano_atual:
             print("Ano inválido ou impossível.")
             continue
 
         try:
-            nascimento = datetime.date(ano, mes, dia)
+            nascimento = date(ano, mes, dia)
         except ValueError:
             print("Dia inválido para o mês e ano informados.")
             continue
@@ -345,24 +347,26 @@ def cadastro():
             print()
 
     clientes.append(
-        {
-            "nome": nome,
-            "usuario": nome_usuario,
-            "cpf": cpf,
-            "rg": rg,
-            "telefone": telefone,
-            "email": email,
-            "endereço": f"{rua}, {nu_casa} - {bairro}, {cidade}/{estado}",
-            "cep": cep,
-            "senha": senha,
-            "nascimento": f"{dia}/{mes}/{ano}",
-            "idade": idade,
-            "status": status,
-        }
+    {
+        "nome": nome,
+        "usuario": nome_usuario,
+        "cpf": cpf,
+        "rg": rg,
+        "telefone": telefone,
+        "email": email,
+        "endereço": f"{rua}, {nu_casa} - {bairro}, {cidade}/{estado}",
+        "cep": cep,
+        "senha": senha,
+        "nascimento": f"{dia}/{mes}/{ano}",
+        "idade": idade,
+        "status": status,
+        "saldo": 0,
+        "chave_pix": None,
+    }
     )
 
     with open("clientes.json", "w", encoding="utf-8") as dados:
-            json.dump(clientes, dados, ensure_ascii=False, indent= 12)
+            json.dump(clientes, dados, ensure_ascii=False, indent= 4)
 
     for cliente in clientes:
         if cliente['cpf'] == cpf:
