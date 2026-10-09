@@ -12,8 +12,29 @@
         "nascimento": "15/08/1998",
         "idade": 28,
         "status": "Maior",
-        "saldo": 5480.0,
-        "chave_pix": null
+        "saldo": 6872.0,
+        "chave_pix": null,
+        "agencia": "0001",
+        "conta": "74825-1",
+        "limite_cartao": 6713.6,
+        "fatura_cartao": 0.0,
+        "score_credito": 850,
+        "limite_credito": 8392.0,
+        "emprestimos": [],
+        "extrato": [
+            {
+                "data": "09/10/2026 13:29:37",
+                "tipo": "Deposito",
+                "valor": 1542.0,
+                "detalhe": "Codigo: 3304352"
+            },
+            {
+                "data": "09/10/2026 13:31:47",
+                "tipo": "Pix Enviado",
+                "valor": 150.0,
+                "detalhe": "Para: Pedro Goçalves Da Silva (Cod: 7689468)"
+            }
+        ]
     },
     {
         "nome": "Pedro Goçalves Da Silva",
@@ -28,8 +49,23 @@
         "nascimento": "15/10/2000",
         "idade": 26,
         "status": "Maior",
-        "saldo": 0,
-        "chave_pix": null
+        "saldo": 150.0,
+        "chave_pix": null,
+        "agencia": "0001",
+        "conta": "85844-1",
+        "limite_cartao": 1500.0,
+        "fatura_cartao": 0.0,
+        "score_credito": 550,
+        "limite_credito": 2000.0,
+        "emprestimos": [],
+        "extrato": [
+            {
+                "data": "09/10/2026 13:31:47",
+                "tipo": "Pix Recebido",
+                "valor": 150.0,
+                "detalhe": "De: Lucas Almeida Costa (Cod: 7689468)"
+            }
+        ]
     },
     {
         "nome": "Sofia Camargo Oliveira",
@@ -45,6 +81,14 @@
         "idade": 19,
         "status": "Maior",
         "saldo": 7894.0,
-        "chave_pix": null
+        "chave_pix": null,
+        "agencia": "0001",
+        "conta": "11707-1",
+        "limite_cartao": 1500.0,
+        "fatura_cartao": 0.0,
+        "score_credito": 550,
+        "limite_credito": 2000.0,
+        "emprestimos": [],
+        "extrato": []
     }
 ]

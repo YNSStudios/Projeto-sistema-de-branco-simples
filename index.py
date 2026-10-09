@@ -1,80 +1,119 @@
-import json
-import re 
 import sys
-from app import * 
-from random import randint 
-from time import sleep
-from datetime import *
+from app import (
+    carregar_clientes,
+    salvar_clientes,
+    login,
+    cadastro,
+    consultar_saldo,
+    realizar_deposito,
+    realizar_saque,
+    realizar_pix,
+    realizar_transferencia,
+    exibir_extrato,
+    analise_credito,
+    solicitar_emprestimo,
+    area_cartao_credito,
+    alterar_senha
+)
+
+clientes = carregar_clientes()
+salvar_clientes(clientes)
 
 print()
 print("==============================")
-print()
 print("\033[33mBanco DECRADI\033[0m")
-print()
-print("Digite seu CPF, telefone ou email (Digite em padrão de leitura, tanto telefone quanto CPF): ")
-
-cliente = login()
-print()
-
-print(f"Bem vindo de volta {cliente['usuario']}")
-print()
-
-print(f"Saldo: {cliente['saldo']}")
-print()
-print("Transferência    Empréstimo     Consórcio     Financiamento     Depósito     configurações    ")
+print("==============================")
 print()
 
 while True:
+    print("1 - Entrar na conta")
+    print("2 - Criar uma nova conta")
+    print("3 - Sair do sistema")
+    opcao_inicial = input("Escolha uma opcao: ").strip()
+    print()
 
-    opçao = input("Digite aqui a opção: ").lower().strip()
+    cliente_atual = None
 
-    if opçao in ["depósito", "deposito"]:
+    if opcao_inicial == "1":
+        cliente_atual = login(clientes)
+        if cliente_atual is None:
+            continue
 
-        print("Digite aqui o valor do depósito: ")
-        deposito = verificar_numero()
+    elif opcao_inicial == "2":
+        cliente_atual = cadastro(clientes)
 
-        for i in range(3):
+    elif opcao_inicial == "3":
+        print("Obrigado por usar o Banco DECRADI. Ate logo!")
+        sys.exit()
 
-            print("Digite sua senha: ")
+    else:
+        print("\033[31mOpcao invalida. Escolha 1, 2 ou 3.\033[0m")
+        print()
+        continue
 
-            com_senha = input("")
+    print(f"Ola, {cliente_atual['usuario']}! Bem-vindo ao seu painel.")
+    print()
 
-            senha = None
-            
-            if com_senha == cliente['senha']:
-                senha = 1
-                break
-            else:
-                print("\033[31mSenha incorrta\033[0m")
+    while True:
+        print("==============================")
+        print("        MENU PRINCIPAL        ")
+        print("==============================")
+        print("1  - Consultar Saldo e Dados")
+        print("2  - Deposito")
+        print("3  - Saque")
+        print("4  - Pix (Enviar / Chaves)")
+        print("5  - Transferencia Bancaria")
+        print("6  - Extrato")
+        print("7  - Analise de Credito")
+        print("8  - Solicitar Emprestimo")
+        print("9  - Cartao de Credito")
+        print("10 - Alterar Senha")
+        print("11 - Desconectar da Conta")
+        print("12 - Sair do Sistema")
+        print("==============================")
 
-        if senha is None:
-            print("\033[31mNúmero de tentativas excedida.\033[0m")
+        escolha = input("Digite o numero da opcao desejada: ").strip()
+        print()
+
+        if escolha == "1":
+            consultar_saldo(cliente_atual)
+
+        elif escolha == "2":
+            realizar_deposito(cliente_atual, clientes)
+
+        elif escolha == "3":
+            realizar_saque(cliente_atual, clientes)
+
+        elif escolha == "4":
+            realizar_pix(cliente_atual, clientes)
+
+        elif escolha == "5":
+            realizar_transferencia(cliente_atual, clientes)
+
+        elif escolha == "6":
+            exibir_extrato(cliente_atual)
+
+        elif escolha == "7":
+            analise_credito(cliente_atual, clientes)
+
+        elif escolha == "8":
+            solicitar_emprestimo(cliente_atual, clientes)
+
+        elif escolha == "9":
+            area_cartao_credito(cliente_atual, clientes)
+
+        elif escolha == "10":
+            alterar_senha(cliente_atual, clientes)
+
+        elif escolha == "11":
+            print("Sessao encerrada. Voltando ao menu inicial.")
+            print()
+            break
+
+        elif escolha == "12":
+            print("Obrigado por utilizar o Banco DECRADI. Ate logo!")
             sys.exit()
 
-        cliente['saldo'] = cliente['saldo'] + deposito
-
-        with open("clientes.json", 'w', encoding="utf-8") as dados:
-            json.dump(clientes, dados, ensure_ascii=False, indent=4)
-
-        codigo_deposito = randint(1000000, 9999999)
-
-        print()
-        print("===========================")
-        print("  COMPROVANTE DE DEPÓSITO  ")
-        print("===========================")
-        print()
-        print(f"Data: {date.today().strftime('%d/%m/%Y')}")
-        print(f"Hora: {datetime.now().strftime('%H:%M:%S')}")
-        print()
-        print(f"Valor do depósito: R$ {deposito}")
-        print()
-        print(f"Nome completo: {cliente['nome']}")
-        print(f"CPF: {cliente['cpf']}")
-        print()
-        print(f"Código de depósito: {codigo_deposito}")
-        print()
-        print("===========================")
-        print("   REALIZADO COM SUCESSO   ")
-        print("===========================")
-        
-        break
+        else:
+            print("\033[31mOpcao invalida! Digite um numero de 1 a 12.\033[0m")
+            print()
